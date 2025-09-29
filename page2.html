@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Independence Day Animation - Rectangle</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+    .container {
+      height: 400px;
+      width: 700px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      clip-path: url(#map-path);
+    }
+    svg {
+      height: 0;
+      width: 0;
+    }
+    .color-orange,
+    .color-green {
+      position: absolute;
+      width: 100%;
+      height: 39%;
+      left: 0;
+      animation: slide-right 3s forwards;
+    }
+    .color-orange {
+      top: 0;
+      background: linear-gradient(red, orange);
+    }
+    .color-green {
+      bottom: 0;
+      background: linear-gradient(green, green);
+    }
+    @keyframes slide-right {
+      0% { left: -100%; }
+      100% { left: 0; }
+    }
+    .color-white {
+      position: absolute;
+      width: 100%;
+      height: 22%;
+      top: 39%;
+      background-color: white;
+      right: 0;
+      animation: slide-left 3s forwards;
+    }
+    @keyframes slide-left {
+      0% { right: -100%; }
+      100% { right: 0; }
+    }
+    #ashoka-chakra {
+      height: 120px;
+      width: 120px;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      animation: spin 3s 2.5s forwards;
+      transform: scale(0);
+    }
+    @keyframes spin {
+      80% { transform: scale(1.6) rotate(360deg); }
+      100% { transform: scale(1) rotate(360deg); }
+
+
+    }
+
+/* Welcome Text */
+.welcome-text {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    font-family: Arial, sans-serif;
+    color: orange;
+    text-shadow: 0 0 10px white, 0 0 20px lightyellow;
+    letter-spacing: 4px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+  </style>
+</head>
+<body>
+<h1 class="welcome-text">HAPPY INDEPENDENCE DAY </h1>
+
+  <!-- Rectangle clip path -->
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <clipPath id="map-path">
+      <rect x="0" y="0" width="700" height="400" />
+    </clipPath>
+  </svg>
+
+  <div class="container">
+    <div class="color-orange"></div>
+    <div class="color-white"></div>
+    <div class="color-green"></div>
+    <img src="D:/indep/Ashoka_Chakra.svg.webp" id="ashoka-chakra" alt="Ashoka Chakra" />
+  </div>
+
+</body>
+</html>
